@@ -39,12 +39,12 @@ urlpatterns = [
     ),
 
     # =========================
-    # ACCOUNTS
+    # ACCOUNTS (Built-in Auth)
     # =========================
 
     path(
         "accounts/",
-        include("accounts.urls")
+        include("django.contrib.auth.urls")
     ),
 ]
 
