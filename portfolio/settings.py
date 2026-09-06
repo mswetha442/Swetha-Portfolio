@@ -20,7 +20,7 @@ INSTALLED_APPS = [
     'main',
     
 ]
-
+ROOT_URLCONF = 'portfolio.urls'
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',  # Serves static files on Render
