@@ -61,22 +61,29 @@ DATABASES = {
     }
 }
 
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# =========================
+# STATIC FILES & WHITENOISE
+# =========================
 
-# Tells Django where your local static folder is located
+STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
+    BASE_DIR / 'static',
 ]
+
+# Simplify WhiteNoise storage to prevent 500 errors on missing manifest files
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 STORAGES = {
     "default": {
         "BACKEND": "django.core.files.storage.FileSystemStorage",
     },
     "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+        "BACKEND": "whitenoise.storage.CompressedStaticFilesStorage",
     },
 }
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
+
