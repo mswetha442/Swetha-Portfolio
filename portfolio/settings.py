@@ -19,7 +19,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main',
 ]
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'lcuptldi',
+    'API_KEY': '835293999235681',
+    'API_SECRET': '2mnwh_f5efGbQR9y7-cyAWD3t50',
+}
 
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
