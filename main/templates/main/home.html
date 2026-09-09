@@ -2,41 +2,34 @@
 {% load static %}
 
 {% block title %}
-    {% if profile %}
-        {{ profile.full_name }} | Portfolio
-    {% else %}
-        My Portfolio
-    {% endif %}
+    Swetha | Portfolio
 {% endblock %}
-
 
 {% block content %}
 
 <!-- =========================================================
-     HERO
+     PROFILE HERO SECTION
 ========================================================= -->
-
 <section id="home" class="hero">
 
     <div class="hero-content">
-
         <p class="hero-tag">
-            HELLO THERE!
+            WELCOME TO MY PORTFOLIO
         </p>
 
         <h1>
             I'm
             <span>
-                {% if profile %}
+                {% if profile and profile.full_name %}
                     {{ profile.full_name }}
                 {% else %}
-                    Portfolio User
+                    Swetha
                 {% endif %}
             </span>
         </h1>
 
         <h2>
-            {% if profile %}
+            {% if profile and profile.profession %}
                 {{ profile.profession }}
             {% else %}
                 Python Full Stack Developer
@@ -44,1067 +37,157 @@
         </h2>
 
         <p class="hero-description">
-            I build responsive and practical web applications
-            using Python, Django, HTML, CSS, JavaScript
-            and databases.
+            {% if profile and profile.bio %}
+                {{ profile.bio }}
+            {% else %}
+                I build responsive and practical web applications using Python, Django, HTML, CSS, JavaScript, and databases.
+            {% endif %}
         </p>
 
         <div class="hero-buttons">
-
             <a href="#projects" class="primary-btn">
-                View My Projects
+                View Project Slideshow
             </a>
-
             <a href="#contact" class="secondary-btn">
                 Contact Me
             </a>
-
-            {% if profile and profile.resume %}
-                <a
-                    href="{{ profile.resume.url }}"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="secondary-btn"
-                >
-                    View Resume
-                </a>
-            {% endif %}
-
         </div>
-
     </div>
 
-
-    <!-- =====================================================
-         HERO PROFILE IMAGE
-    ====================================================== -->
-
+    <!-- PROFILE IMAGE -->
     <div class="hero-image-area">
-
         <div class="yellow-shape"></div>
-
         <div class="profile-image-box">
-
             <div class="profile-image-wrapper">
-
                 {% if profile and profile.profile_image %}
-
                     <img
                         src="{{ profile.profile_image.url }}"
-                        alt="{{ profile.full_name }}"
+                        alt="Swetha Profile"
+                        class="profile-image"
+                        onerror="this.onerror=null; this.src='{% static 'images/profile.png' %}';"
+                    >
+                {% else %}
+                    <img
+                        src="{% static 'images/profile.png' %}"
+                        alt="Swetha Profile"
                         class="profile-image"
                     >
-
-                {% else %}
-
-                    <div class="profile-image-placeholder">
-                        <i class="bi bi-person"></i>
-                    </div>
-
                 {% endif %}
-
             </div>
-
         </div>
 
         <div class="role-badge">
-
-            {% if profile %}
-                {{ profile.profession|upper }}
-            {% else %}
-                PYTHON DEVELOPER
-            {% endif %}
-
+            PYTHON FULL STACK DEVELOPER
         </div>
-
     </div>
 
 </section>
 
 
 <!-- =========================================================
-     CATEGORY STRIP
+     PROJECT SCREENSHOTS SLIDESHOW SECTION
 ========================================================= -->
-
-<section class="category-strip">
-
-    <span>Python</span>
-    <span>✳</span>
-    <span>Django</span>
-    <span>✳</span>
-    <span>Full Stack</span>
-    <span>✳</span>
-    <span>Web Development</span>
-    <span>✳</span>
-    <span>MySQL</span>
-
-</section>
-
-
-<!-- =========================================================
-     SERVICES / SKILLS
-========================================================= -->
-
-<section id="services" class="services-section">
-
-    <div class="section-header">
-
-        <p class="section-tag">
-            SKILLS
-        </p>
-
-        <h2>
-            What I Can
-            <span>Build</span>
-        </h2>
-
-    </div>
-
-
-    <div class="services-grid">
-
-        <div class="service-card">
-
-            <div class="service-icon">
-                01
-            </div>
-
-            <h3>
-                Python Development
-            </h3>
-
-            <p>
-                Developing clean and maintainable Python
-                applications with a focus on practical
-                problem-solving and backend logic.
-            </p>
-
-        </div>
-
-
-        <div class="service-card">
-
-            <div class="service-icon">
-                02
-            </div>
-
-            <h3>
-                Django Development
-            </h3>
-
-            <p>
-                Building dynamic web applications with Django,
-                including database integration, authentication
-                and CRUD functionality.
-            </p>
-
-        </div>
-
-
-        <div class="service-card">
-
-            <div class="service-icon">
-                03
-            </div>
-
-            <h3>
-                Frontend Development
-            </h3>
-
-            <p>
-                Creating responsive and user-friendly interfaces
-                using HTML, CSS, JavaScript and Bootstrap.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     ABOUT
-========================================================= -->
-
-<section id="about" class="about-section">
-
-    <div class="about-image-area">
-
-        <div class="about-circle"></div>
-
-        <div class="about-image-placeholder">
-
-            {% if profile and profile.profile_image %}
-
-                <img
-                    src="{{ profile.profile_image.url }}"
-                    alt="{{ profile.full_name }}"
-                >
-
-            {% else %}
-
-                <div class="about-image-fallback">
-                    <i class="bi bi-person"></i>
-                </div>
-
-            {% endif %}
-
-        </div>
-
-    </div>
-
-
-    <div class="about-content">
-
-        <p class="section-tag">
-            ABOUT ME
-        </p>
-
-        <h2>
-            Who is
-
-            <span>
-                {% if profile %}
-                    {{ profile.full_name }}
-                {% else %}
-                    Portfolio User
-                {% endif %}
-            </span>
-        </h2>
-
-
-        <p>
-
-            {% if profile and profile.bio %}
-
-                {{ profile.bio|linebreaksbr }}
-
-            {% else %}
-
-                I am an aspiring Python Full Stack Developer
-                passionate about building useful web applications
-                and continuously improving my technical skills.
-
-            {% endif %}
-
-        </p>
-
-
-        <div class="about-skills">
-
-            <span>Python</span>
-            <span>Django</span>
-            <span>SQL</span>
-            <span>MySQL</span>
-            <span>HTML</span>
-            <span>CSS</span>
-            <span>JavaScript</span>
-            <span>Bootstrap</span>
-
-        </div>
-
-
-        {% if profile and profile.resume %}
-
-            <div class="about-resume">
-
-                <a
-                    href="{{ profile.resume.url }}"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="resume-btn"
-                >
-
-                    <i class="bi bi-file-earmark-person"></i>
-                    View My Resume
-
-                </a>
-
-            </div>
-
-        {% endif %}
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     PROJECTS
-========================================================= -->
-
 <section id="projects" class="projects-section">
 
     <div class="section-header">
-
         <p class="section-tag">
-            SELECTED PROJECTS
+            FEATURED PROJECT
         </p>
-
         <h2>
-            My Latest
-            <span>Projects</span>
+            E-Commerce Platform
+            <span>Screenshots</span>
         </h2>
-
+        <p style="color: #94a3b8; max-width: 600px; margin: 10px auto 0;">
+            A full-stack online shopping platform built with Django. Use the controls below to browse project screenshots.
+        </p>
     </div>
 
-
-    <div class="projects-grid">
-
-
-        <!-- =================================================
-             PROJECT 1 - E-COMMERCE
-        ================================================== -->
+    <div class="projects-grid" style="grid-template-columns: 1fr; max-width: 900px; margin: 0 auto;">
 
         <article class="project-card">
-
             <div class="project-preview ecommerce-preview">
-
                 <div class="ecommerce-slideshow">
-
                     <img
                         src="{% static 'images/ecommerce1.png' %}"
                         alt="E-Commerce Homepage"
                         class="ecommerce-slide active"
                     >
-
                     <img
                         src="{% static 'images/ecommerce2.png' %}"
                         alt="E-Commerce Products"
                         class="ecommerce-slide"
                     >
-
                     <img
                         src="{% static 'images/ecommerce3.png' %}"
                         alt="E-Commerce Product Details"
                         class="ecommerce-slide"
                     >
-
                     <img
                         src="{% static 'images/ecommerce4.png' %}"
                         alt="E-Commerce Shopping Cart"
                         class="ecommerce-slide"
                     >
-
                     <img
                         src="{% static 'images/ecommerce5.png' %}"
                         alt="E-Commerce Admin Dashboard"
                         class="ecommerce-slide"
                     >
 
-
+                    <!-- Slideshow Navigation Controls -->
                     <button
                         class="carousel-btn carousel-prev"
                         type="button"
-                        aria-label="Previous project screenshot"
+                        aria-label="Previous screenshot"
                     >
                         &#10094;
                     </button>
 
-
                     <button
                         class="carousel-btn carousel-next"
                         type="button"
-                        aria-label="Next project screenshot"
+                        aria-label="Next screenshot"
                     >
                         &#10095;
                     </button>
 
-
+                    <!-- Slideshow Dot Indicators -->
                     <div class="carousel-dots">
-
-                        <button
-                            class="carousel-dot active"
-                            type="button"
-                            aria-label="Show screenshot 1"
-                        ></button>
-
-                        <button
-                            class="carousel-dot"
-                            type="button"
-                            aria-label="Show screenshot 2"
-                        ></button>
-
-                        <button
-                            class="carousel-dot"
-                            type="button"
-                            aria-label="Show screenshot 3"
-                        ></button>
-
-                        <button
-                            class="carousel-dot"
-                            type="button"
-                            aria-label="Show screenshot 4"
-                        ></button>
-
-                        <button
-                            class="carousel-dot"
-                            type="button"
-                            aria-label="Show screenshot 5"
-                        ></button>
-
+                        <button class="carousel-dot active" type="button" aria-label="Slide 1"></button>
+                        <button class="carousel-dot" type="button" aria-label="Slide 2"></button>
+                        <button class="carousel-dot" type="button" aria-label="Slide 3"></button>
+                        <button class="carousel-dot" type="button" aria-label="Slide 4"></button>
+                        <button class="carousel-dot" type="button" aria-label="Slide 5"></button>
                     </div>
-
                 </div>
-
             </div>
 
-
-            <div class="project-details">
-
-                <p>
-                    PYTHON • DJANGO • MYSQL • HTML • CSS • JAVASCRIPT
+            <div class="project-info" style="padding: 24px;">
+                <h3 style="font-size: 1.5rem; margin-bottom: 10px;">E-Commerce Web Application</h3>
+                <p style="color: #94a3b8; margin-bottom: 16px;">
+                    Features full product listing, interactive shopping cart, secure user authentication, and admin management dashboard.
                 </p>
-
-                <h3>
-                    E-Commerce Web Application
-                </h3>
-
-                <p class="project-description">
-                    A full-stack e-commerce web application designed
-                    to provide a complete online shopping experience
-                    with secure user authentication, product management,
-                    shopping cart, checkout, order management and
-                    an admin dashboard.
-                </p>
-
-
-                <div class="project-features">
-
-                    <span>✓ User Authentication</span>
-                    <span>✓ Product Management</span>
-                    <span>✓ Shopping Cart</span>
-                    <span>✓ Checkout &amp; Orders</span>
-                    <span>✓ Admin Dashboard</span>
-                    <span>✓ Responsive Design</span>
-
+                <div class="tech-stack" style="display: flex; gap: 8px; flex-wrap: wrap;">
+                    <span style="background: #1e293b; color: #6366f1; padding: 4px 12px; border-radius: 6px; font-size: 0.85rem; border: 1px solid #334155;">Django</span>
+                    <span style="background: #1e293b; color: #6366f1; padding: 4px 12px; border-radius: 6px; font-size: 0.85rem; border: 1px solid #334155;">Python</span>
+                    <span style="background: #1e293b; color: #6366f1; padding: 4px 12px; border-radius: 6px; font-size: 0.85rem; border: 1px solid #334155;">JavaScript</span>
+                    <span style="background: #1e293b; color: #6366f1; padding: 4px 12px; border-radius: 6px; font-size: 0.85rem; border: 1px solid #334155;">HTML5/CSS3</span>
                 </div>
-
-
-                <div class="project-links">
-
-                    <a
-                        href="https://django-ecommerce-c0qf.onrender.com/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Live Demo ↗
-                    </a>
-
-                    <a
-                        href="https://github.com/mswetha442/ecommerce"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        GitHub ↗
-                    </a>
-
-                </div>
-
             </div>
-
-        </article>
-
-
-        <!-- =================================================
-             PROJECT 2 - PORTFOLIO
-        ================================================== -->
-
-        <article class="project-card">
-
-            <div class="project-preview portfolio-preview">
-
-                <span>
-                    PORTFOLIO
-                </span>
-
-                <h3>
-
-                    {% if profile %}
-                        {{ profile.full_name|upper }}.
-                    {% else %}
-                        PORTFOLIO.
-                    {% endif %}
-
-                </h3>
-
-            </div>
-
-
-            <div class="project-details">
-
-                <p>
-                    DJANGO • HTML • CSS • JAVASCRIPT
-                </p>
-
-                <h3>
-                    Developer Portfolio
-                </h3>
-
-                <p class="project-description">
-                    A responsive Django-based portfolio website
-                    showcasing technical skills, projects,
-                    education, resume and professional links.
-                </p>
-
-
-                <div class="project-links">
-
-                    <a href="#home">
-                        View Portfolio ↗
-                    </a>
-
-                </div>
-
-            </div>
-
         </article>
 
     </div>
 
 </section>
 
-
 <!-- =========================================================
-     EXPERIENCE
+     FOOTER SECTION
 ========================================================= -->
-
-{% if experiences %}
-
-<section id="experience" class="experience-section">
-
-    <div class="section-header">
-
-        <p class="section-tag">
-            EXPERIENCE
-        </p>
-
-        <h2>
-            Professional
-            <span>Experience</span>
-        </h2>
-
+<footer class="footer" id="contact" style="padding: 40px 0; text-align: center; border-top: 1px solid #1e293b; margin-top: 60px;">
+    <div class="container">
+        <h3 style="margin-bottom: 8px;">Swetha.</h3>
+        <p style="color: #94a3b8; margin-bottom: 16px;">Python Full Stack Developer</p>
+        <p style="color: #64748b; font-size: 0.9rem;">&copy; 2026 Swetha. All rights reserved.</p>
     </div>
-
-
-    <div class="experience-grid">
-
-        {% for experience in experiences %}
-
-            <div class="experience-card">
-
-                <span>
-
-                    {{ experience.start_date }}
-
-                    {% if experience.end_date %}
-                        - {{ experience.end_date }}
-                    {% endif %}
-
-                </span>
-
-
-                <h3>
-                    {{ experience.job_title }}
-                </h3>
-
-
-                <h4>
-                    {{ experience.company }}
-                </h4>
-
-
-                {% if experience.description %}
-
-                    <p>
-                        {{ experience.description|linebreaksbr }}
-                    </p>
-
-                {% endif %}
-
-            </div>
-
-        {% endfor %}
-
-    </div>
-
-</section>
-
-{% endif %}
-
-
-<!-- =========================================================
-     EDUCATION
-========================================================= -->
-
-<section id="education" class="education-section">
-
-    <div class="section-header">
-
-        <p class="section-tag">
-            EDUCATION
-        </p>
-
-        <h2>
-            My Academic
-            <span>Journey</span>
-        </h2>
-
-    </div>
-
-
-    <div class="education-grid">
-
-
-        {% if educations %}
-
-            {% for education in educations %}
-
-                <div class="education-card">
-
-                    <span>
-                        {{ forloop.counter|stringformat:"02d" }}
-                    </span>
-
-
-                    <h3>
-                        {{ education.degree }}
-                    </h3>
-
-
-                    <h4>
-                        {{ education.institution }}
-                    </h4>
-
-
-                    <p>
-
-                        {{ education.start_year }}
-
-                        {% if education.end_year %}
-                            - {{ education.end_year }}
-                        {% endif %}
-
-                    </p>
-
-
-                    {% if education.description %}
-
-                        <p>
-                            {{ education.description|linebreaksbr }}
-                        </p>
-
-                    {% endif %}
-
-                </div>
-
-            {% endfor %}
-
-
-        {% else %}
-
-
-            <div class="education-card">
-
-                <span>
-                    01
-                </span>
-
-                <h3>
-                    Bachelor of Computer Applications (BCA)
-                </h3>
-
-                <p>
-                    Foundation in programming, databases
-                    and computer applications.
-                </p>
-
-            </div>
-
-
-            <div class="education-card">
-
-                <span>
-                    02
-                </span>
-
-                <h3>
-                    Master of Business Administration (MBA)
-                </h3>
-
-                <p>
-                    Developing business, management
-                    and analytical knowledge.
-                </p>
-
-            </div>
-
-
-        {% endif %}
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     PROFESSIONAL LINKS
-========================================================= -->
-
-<section id="links" class="links-section">
-
-    <div class="section-header">
-
-        <p class="section-tag">
-            CONNECT
-        </p>
-
-        <h2>
-            Find Me
-            <span>Online</span>
-        </h2>
-
-        <p class="links-description">
-            Connect with me and explore my work,
-            projects and professional journey.
-        </p>
-
-    </div>
-
-
-    <div class="links-grid">
-
-
-        <!-- LINKEDIN -->
-
-        {% if profile and profile.linkedin %}
-
-            <a
-                href="{{ profile.linkedin }}"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="link-card"
-            >
-
-                <div class="link-icon">
-                    <i class="bi bi-linkedin"></i>
-                </div>
-
-                <div class="link-content">
-
-                    <span>
-                        PROFESSIONAL
-                    </span>
-
-                    <h3>
-                        LinkedIn
-                    </h3>
-
-                    <p>
-                        Connect with me professionally
-                    </p>
-
-                </div>
-
-                <div class="link-arrow">
-                    ↗
-                </div>
-
-            </a>
-
-        {% endif %}
-
-
-        <!-- GITHUB -->
-
-        {% if profile and profile.github %}
-
-            <a
-                href="{{ profile.github }}"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="link-card"
-            >
-
-                <div class="link-icon">
-                    <i class="bi bi-github"></i>
-                </div>
-
-                <div class="link-content">
-
-                    <span>
-                        CODE
-                    </span>
-
-                    <h3>
-                        GitHub
-                    </h3>
-
-                    <p>
-                        Explore my projects and code
-                    </p>
-
-                </div>
-
-                <div class="link-arrow">
-                    ↗
-                </div>
-
-            </a>
-
-        {% endif %}
-
-
-        <!-- EMAIL -->
-
-        {% if profile and profile.email %}
-
-            <a
-                href="mailto:{{ profile.email }}"
-                class="link-card"
-            >
-
-                <div class="link-icon">
-                    <i class="bi bi-envelope"></i>
-                </div>
-
-                <div class="link-content">
-
-                    <span>
-                        EMAIL
-                    </span>
-
-                    <h3>
-                        Email Me
-                    </h3>
-
-                    <p>
-                        {{ profile.email }}
-                    </p>
-
-                </div>
-
-                <div class="link-arrow">
-                    ↗
-                </div>
-
-            </a>
-
-        {% endif %}
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     CONTACT
-========================================================= -->
-
-<section id="contact" class="contact-section">
-
-    <div class="contact-content">
-
-        <p class="section-tag">
-            LET'S CONNECT
-        </p>
-
-        <h2>
-            Let's build something
-            <span>great together.</span>
-        </h2>
-
-        <p class="contact-description">
-            I'm open to opportunities, collaborations and interesting
-            projects. Feel free to connect with me or send me a message.
-        </p>
-
-
-        <div class="contact-links">
-
-
-            <!-- EMAIL -->
-
-            {% if profile and profile.email %}
-
-                <a
-                    href="mailto:{{ profile.email }}"
-                    class="contact-link"
-                >
-
-                    <i class="bi bi-envelope"></i>
-
-                    <div>
-
-                        <span>
-                            Email
-                        </span>
-
-                        <strong>
-                            {{ profile.email }}
-                        </strong>
-
-                    </div>
-
-                </a>
-
-            {% endif %}
-
-
-            <!-- PHONE -->
-
-            {% if profile and profile.phone %}
-
-                <a
-                    href="tel:{{ profile.phone }}"
-                    class="contact-link"
-                >
-
-                    <i class="bi bi-telephone"></i>
-
-                    <div>
-
-                        <span>
-                            Phone
-                        </span>
-
-                        <strong>
-                            {{ profile.phone }}
-                        </strong>
-
-                    </div>
-
-                </a>
-
-            {% endif %}
-
-
-            <!-- LINKEDIN -->
-
-            {% if profile and profile.linkedin %}
-
-                <a
-                    href="{{ profile.linkedin }}"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="contact-link"
-                >
-
-                    <i class="bi bi-linkedin"></i>
-
-                    <div>
-
-                        <span>
-                            LinkedIn
-                        </span>
-
-                        <strong>
-                            Connect with me
-                        </strong>
-
-                    </div>
-
-                </a>
-
-            {% endif %}
-
-
-            <!-- GITHUB -->
-
-            {% if profile and profile.github %}
-
-                <a
-                    href="{{ profile.github }}"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="contact-link"
-                >
-
-                    <i class="bi bi-github"></i>
-
-                    <div>
-
-                        <span>
-                            GitHub
-                        </span>
-
-                        <strong>
-                            View my projects
-                        </strong>
-
-                    </div>
-
-                </a>
-
-            {% endif %}
-
-        </div>
-
-
-        {% if profile and profile.email %}
-
-            <a
-                href="mailto:{{ profile.email }}"
-                class="contact-button"
-            >
-                Send Me an Email ↗
-            </a>
-
-        {% endif %}
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     FOOTER
-========================================================= -->
-
-<footer class="footer">
-
-    <div>
-
-        <h3>
-
-            {% if profile %}
-                {{ profile.full_name }}.
-            {% else %}
-                My Portfolio.
-            {% endif %}
-
-        </h3>
-
-
-        <p>
-
-            {% if profile %}
-                {{ profile.profession }}
-            {% else %}
-                Python Full Stack Developer
-            {% endif %}
-
-        </p>
-
-    </div>
-
-
-    <p>
-
-        © 2026
-
-        {% if profile %}
-            {{ profile.full_name }}
-        {% else %}
-            Portfolio
-        {% endif %}
-
-        . All rights reserved.
-
-    </p>
-
 </footer>
-
 
 {% endblock %}
