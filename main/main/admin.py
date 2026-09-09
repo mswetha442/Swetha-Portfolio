@@ -11,12 +11,7 @@ class ProjectImageInline(admin.TabularInline):
 class ProjectAdmin(admin.ModelAdmin):
     inlines = [ProjectImageInline]
 
-class ProjectImageInline(admin.TabularInline):
-    model = ProjectImage
-    extra = 3  # Provides 3 image upload slots by default
 
-
-    
 # Register remaining models
 admin.site.register(Profile)
 admin.site.register(Experience)

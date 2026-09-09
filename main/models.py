@@ -1,7 +1,7 @@
 
 from django.db import models
 from django.contrib.auth.models import User
-from cloudinary.models import CloudinaryField
+
 
 class Profile(models.Model):
 
@@ -14,8 +14,12 @@ class Profile(models.Model):
     full_name = models.CharField(max_length=100)
     profession = models.CharField(max_length=150)
     bio = models.TextField()
-    profile_image = CloudinaryField('image', blank=True, null=True)
-    
+
+    profile_image = models.ImageField(
+        upload_to="profile/",
+        blank=True,
+        null=True
+    )
 
     email = models.EmailField()
     phone = models.CharField(
@@ -82,7 +86,7 @@ class ProjectImage(models.Model):
         on_delete=models.CASCADE,
         related_name="images"
     )
-    image = CloudinaryField('image')
+    image = models.ImageField(upload_to="projects/carousel/")
     caption = models.CharField(max_length=150, blank=True)
 
     def __str__(self):
