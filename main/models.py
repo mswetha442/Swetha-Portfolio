@@ -64,12 +64,7 @@ class Project(models.Model):
         blank=True
     )
 
-    image = models.ImageField(
-        upload_to="projects/",
-        blank=True,
-        null=True
-    )
-
+    image = models.ImageField(upload_to='projects/')
     github_url = models.URLField(
         blank=True
     )
@@ -85,7 +80,17 @@ class Project(models.Model):
     def __str__(self):
         return self.title
     
-    
+class ProjectImage(models.Model):
+    project = models.ForeignKey(
+        Project,
+        on_delete=models.CASCADE,
+        related_name="images"
+    )
+    image = models.ImageField(upload_to="projects/carousel/")
+    caption = models.CharField(max_length=150, blank=True)
+
+    def __str__(self):
+        return f"{self.project.title} Image"   
 class Experience(models.Model):
 
     profile = models.ForeignKey(
