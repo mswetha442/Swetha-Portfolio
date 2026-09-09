@@ -9,4 +9,5 @@ docutils
 filetype
 gunicorn
 idna
+Pillow
 whitenoise
