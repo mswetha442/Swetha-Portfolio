@@ -3534,3 +3534,19 @@ text-decoration: underline;
     font-size: 17px;
 }
 
+
+
+/* Centered Footer Override */
+.footer {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    padding: 45px 8% !important;
+    gap: 16px !important;
+}
+.footer > div {
+    text-align: center !important;
+}
+

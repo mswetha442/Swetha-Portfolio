@@ -2,82 +2,64 @@
 {% load static %}
 
 {% block title %}
-    Swetha | Portfolio
+    Swetha M | Python Full Stack Developer
 {% endblock %}
 
 {% block content %}
 
 <!-- =========================================================
-     PROFILE HERO SECTION
+     HERO SECTION
 ========================================================= -->
 <section id="home" class="hero">
 
     <div class="hero-content">
         <p class="hero-tag">
-            WELCOME TO MY PORTFOLIO
+            <i class="bi bi-geo-alt-fill" style="color: #6366f1;"></i> Thoothukudi, Tamil Nadu, India
         </p>
 
         <h1>
-            I'm
-            <span>
-                {% if profile and profile.full_name %}
-                    {{ profile.full_name }}
-                {% else %}
-                    Swetha
-                {% endif %}
-            </span>
+            I'm <span>Swetha M</span>
         </h1>
 
         <h2>
-            {% if profile and profile.profession %}
-                {{ profile.profession }}
-            {% else %}
-                Python Full Stack Developer
-            {% endif %}
+            Python Full Stack Developer
         </h2>
 
         <p class="hero-description">
-            {% if profile and profile.bio %}
-                {{ profile.bio }}
-            {% else %}
-                I build responsive and practical web applications using Python, Django, HTML, CSS, JavaScript, and databases.
-            {% endif %}
+            Aspiring Full-Stack Python/Django Developer with practical experience in building web applications and database-driven solutions. Proficient in Python, Django, MySQL, and modern frontend technologies.
         </p>
 
         <div class="hero-buttons">
             <a href="#projects" class="primary-btn">
-                View Project Slideshow
+                <i class="bi bi-code-slash"></i> View Projects
             </a>
             <a href="#contact" class="secondary-btn">
-                Contact Me
+                <i class="bi bi-telephone-fill"></i> Contact Me
+            </a>
+            <a href="https://github.com/mswetha442" target="_blank" class="secondary-btn">
+                <i class="bi bi-github"></i> GitHub
+            </a>
+            <a href="https://linkedin.com/in/swetha-m-1b771a193" target="_blank" class="secondary-btn">
+                <i class="bi bi-linkedin"></i> LinkedIn
             </a>
         </div>
     </div>
 
-    <!-- PROFILE IMAGE -->
+    <!-- HERO PROFILE IMAGE -->
     <div class="hero-image-area">
         <div class="yellow-shape"></div>
         <div class="profile-image-box">
             <div class="profile-image-wrapper">
-                {% if profile and profile.profile_image %}
-                    <img
-                        src="{{ profile.profile_image.url }}"
-                        alt="Swetha Profile"
-                        class="profile-image"
-                        onerror="this.onerror=null; this.src='{% static 'images/profile.png' %}';"
-                    >
-                {% else %}
-                    <img
-                        src="{% static 'images/profile.png' %}"
-                        alt="Swetha Profile"
-                        class="profile-image"
-                    >
-                {% endif %}
+                <img
+                    src="{% static 'images/profile.png' %}"
+                    alt="Swetha M"
+                    class="profile-image"
+                    onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Swetha+M&background=4f46e5&color=fff&size=300';"
+                >
             </div>
         </div>
-
         <div class="role-badge">
-            PYTHON FULL STACK DEVELOPER
+            PYTHON / DJANGO DEVELOPER
         </div>
     </div>
 
@@ -85,109 +67,325 @@
 
 
 <!-- =========================================================
-     PROJECT SCREENSHOTS SLIDESHOW SECTION
+     ABOUT ME SECTION
 ========================================================= -->
-<section id="projects" class="projects-section">
-
+<section id="about" class="about-section" style="padding: 60px 8%;">
     <div class="section-header">
-        <p class="section-tag">
-            FEATURED PROJECT
-        </p>
-        <h2>
-            E-Commerce Platform
-            <span>Screenshots</span>
-        </h2>
-        <p style="color: #94a3b8; max-width: 600px; margin: 10px auto 0;">
-            A full-stack online shopping platform built with Django. Use the controls below to browse project screenshots.
-        </p>
+        <p class="section-tag">PROFESSIONAL SUMMARY</p>
+        <h2>About <span>Me</span></h2>
     </div>
 
-    <div class="projects-grid" style="grid-template-columns: 1fr; max-width: 900px; margin: 0 auto;">
+    <div class="about-card" style="background: #1e293b; border: 1px solid #334155; border-radius: 16px; padding: 32px; color: #f8fafc; max-width: 900px; margin: 0 auto; line-height: 1.8;">
+        <p style="font-size: 1.1rem; color: #cbd5e1;">
+            Aspiring Full-Stack Python/Django Developer with practical experience in building web applications and database-driven solutions. Proficient in Python, Django, MySQL, and modern frontend technologies. Skilled in developing responsive web applications, implementing CRUD operations, user authentication, and database integration. Combines strong technical problem-solving skills with practical project experience to build functional and user-friendly web applications.
+        </p>
+    </div>
+</section>
 
-        <article class="project-card">
+
+<!-- =========================================================
+     TECHNICAL SKILLS SECTION
+========================================================= -->
+<section id="skills" class="skills-section" style="padding: 60px 8%; background: #0b1120;">
+    <div class="section-header">
+        <p class="section-tag">TECHNICAL COMPETENCIES</p>
+        <h2>Technical <span>Skills</span></h2>
+    </div>
+
+    <div class="skills-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; max-width: 1100px; margin: 0 auto;">
+        
+        <div class="skill-card" style="background: #1e293b; border: 1px solid #334155; border-radius: 14px; padding: 24px;">
+            <h3 style="color: #6366f1; font-size: 1.2rem; margin-bottom: 12px;"><i class="bi bi-code-square"></i> Languages</h3>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">SQL</span>
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">HTML5</span>
+                <span class="tech-tag">CSS3</span>
+            </div>
+        </div>
+
+        <div class="skill-card" style="background: #1e293b; border: 1px solid #334155; border-radius: 14px; padding: 24px;">
+            <h3 style="color: #6366f1; font-size: 1.2rem; margin-bottom: 12px;"><i class="bi bi-server"></i> Backend Development</h3>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                <span class="tech-tag">Django</span>
+                <span class="tech-tag">Django REST Framework (DRF)</span>
+                <span class="tech-tag">MVT Architecture</span>
+                <span class="tech-tag">CRUD Operations</span>
+            </div>
+        </div>
+
+        <div class="skill-card" style="background: #1e293b; border: 1px solid #334155; border-radius: 14px; padding: 24px;">
+            <h3 style="color: #6366f1; font-size: 1.2rem; margin-bottom: 12px;"><i class="bi bi-layout-wysiwyg"></i> Frontend Development</h3>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                <span class="tech-tag">HTML5</span>
+                <span class="tech-tag">CSS3</span>
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">Bootstrap 5</span>
+                <span class="tech-tag">Responsive Design</span>
+            </div>
+        </div>
+
+        <div class="skill-card" style="background: #1e293b; border: 1px solid #334155; border-radius: 14px; padding: 24px;">
+            <h3 style="color: #6366f1; font-size: 1.2rem; margin-bottom: 12px;"><i class="bi bi-database"></i> Databases</h3>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                <span class="tech-tag">MySQL</span>
+                <span class="tech-tag">Django ORM</span>
+                <span class="tech-tag">Relational Databases</span>
+                <span class="tech-tag">SQL Queries</span>
+            </div>
+        </div>
+
+        <div class="skill-card" style="background: #1e293b; border: 1px solid #334155; border-radius: 14px; padding: 24px;">
+            <h3 style="color: #6366f1; font-size: 1.2rem; margin-bottom: 12px;"><i class="bi bi-shield-lock"></i> Authentication</h3>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                <span class="tech-tag">Django Auth</span>
+                <span class="tech-tag">User Registration</span>
+                <span class="tech-tag">Session Management</span>
+                <span class="tech-tag">Login/Logout Workflows</span>
+            </div>
+        </div>
+
+        <div class="skill-card" style="background: #1e293b; border: 1px solid #334155; border-radius: 14px; padding: 24px;">
+            <h3 style="color: #6366f1; font-size: 1.2rem; margin-bottom: 12px;"><i class="bi bi-tools"></i> Tools & Deployment</h3>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                <span class="tech-tag">Git</span>
+                <span class="tech-tag">GitHub</span>
+                <span class="tech-tag">VS Code</span>
+                <span class="tech-tag">Render</span>
+                <span class="tech-tag">OOP</span>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- =========================================================
+     TECHNICAL PROJECTS SECTION (WITH SLIDESHOW)
+========================================================= -->
+<section id="projects" class="projects-section" style="padding: 60px 8%;">
+
+    <div class="section-header">
+        <p class="section-tag">FEATURED WORK</p>
+        <h2>Technical <span>Projects</span></h2>
+    </div>
+
+    <div class="projects-grid" style="display: flex; flex-direction: column; gap: 40px; max-width: 1000px; margin: 0 auto;">
+
+        <!-- PROJECT 1: E-COMMERCE WITH SLIDESHOW -->
+        <article class="project-card" style="background: #1e293b; border: 1px solid #334155; border-radius: 16px; overflow: hidden;">
+            
             <div class="project-preview ecommerce-preview">
                 <div class="ecommerce-slideshow">
-                    <img
-                        src="{% static 'images/ecommerce1.png' %}"
-                        alt="E-Commerce Homepage"
-                        class="ecommerce-slide active"
-                    >
-                    <img
-                        src="{% static 'images/ecommerce2.png' %}"
-                        alt="E-Commerce Products"
-                        class="ecommerce-slide"
-                    >
-                    <img
-                        src="{% static 'images/ecommerce3.png' %}"
-                        alt="E-Commerce Product Details"
-                        class="ecommerce-slide"
-                    >
-                    <img
-                        src="{% static 'images/ecommerce4.png' %}"
-                        alt="E-Commerce Shopping Cart"
-                        class="ecommerce-slide"
-                    >
-                    <img
-                        src="{% static 'images/ecommerce5.png' %}"
-                        alt="E-Commerce Admin Dashboard"
-                        class="ecommerce-slide"
-                    >
+                    <img src="{% static 'images/ecommerce1.png' %}" alt="E-Commerce Homepage" class="ecommerce-slide active">
+                    <img src="{% static 'images/ecommerce2.png' %}" alt="E-Commerce Products" class="ecommerce-slide">
+                    <img src="{% static 'images/ecommerce3.png' %}" alt="E-Commerce Product Details" class="ecommerce-slide">
+                    <img src="{% static 'images/ecommerce4.png' %}" alt="E-Commerce Shopping Cart" class="ecommerce-slide">
+                    <img src="{% static 'images/ecommerce5.png' %}" alt="E-Commerce Admin Dashboard" class="ecommerce-slide">
 
-                    <!-- Slideshow Navigation Controls -->
-                    <button
-                        class="carousel-btn carousel-prev"
-                        type="button"
-                        aria-label="Previous screenshot"
-                    >
-                        &#10094;
-                    </button>
+                    <!-- Controls -->
+                    <button class="carousel-btn carousel-prev" type="button" aria-label="Previous screenshot">&#10094;</button>
+                    <button class="carousel-btn carousel-next" type="button" aria-label="Next screenshot">&#10095;</button>
 
-                    <button
-                        class="carousel-btn carousel-next"
-                        type="button"
-                        aria-label="Next screenshot"
-                    >
-                        &#10095;
-                    </button>
-
-                    <!-- Slideshow Dot Indicators -->
+                    <!-- Indicators -->
                     <div class="carousel-dots">
-                        <button class="carousel-dot active" type="button" aria-label="Slide 1"></button>
-                        <button class="carousel-dot" type="button" aria-label="Slide 2"></button>
-                        <button class="carousel-dot" type="button" aria-label="Slide 3"></button>
-                        <button class="carousel-dot" type="button" aria-label="Slide 4"></button>
-                        <button class="carousel-dot" type="button" aria-label="Slide 5"></button>
+                        <button class="carousel-dot active" type="button"></button>
+                        <button class="carousel-dot" type="button"></button>
+                        <button class="carousel-dot" type="button"></button>
+                        <button class="carousel-dot" type="button"></button>
+                        <button class="carousel-dot" type="button"></button>
                     </div>
                 </div>
             </div>
 
-            <div class="project-info" style="padding: 24px;">
-                <h3 style="font-size: 1.5rem; margin-bottom: 10px;">E-Commerce Web Application</h3>
-                <p style="color: #94a3b8; margin-bottom: 16px;">
-                    Features full product listing, interactive shopping cart, secure user authentication, and admin management dashboard.
-                </p>
-                <div class="tech-stack" style="display: flex; gap: 8px; flex-wrap: wrap;">
-                    <span style="background: #1e293b; color: #6366f1; padding: 4px 12px; border-radius: 6px; font-size: 0.85rem; border: 1px solid #334155;">Django</span>
-                    <span style="background: #1e293b; color: #6366f1; padding: 4px 12px; border-radius: 6px; font-size: 0.85rem; border: 1px solid #334155;">Python</span>
-                    <span style="background: #1e293b; color: #6366f1; padding: 4px 12px; border-radius: 6px; font-size: 0.85rem; border: 1px solid #334155;">JavaScript</span>
-                    <span style="background: #1e293b; color: #6366f1; padding: 4px 12px; border-radius: 6px; font-size: 0.85rem; border: 1px solid #334155;">HTML5/CSS3</span>
+            <div class="project-info" style="padding: 30px;">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 12px; margin-bottom: 12px;">
+                    <h3 style="font-size: 1.6rem; color: #f8fafc;">E-Commerce Web Application</h3>
+                    <div style="display: flex; gap: 12px;">
+                        <a href="https://django-ecommerce-c0qf.onrender.com" target="_blank" class="primary-btn" style="padding: 6px 14px; font-size: 0.85rem;"><i class="bi bi-box-arrow-up-right"></i> Live Demo</a>
+                        <a href="https://github.com/mswetha442/ecommerce" target="_blank" class="secondary-btn" style="padding: 6px 14px; font-size: 0.85rem;"><i class="bi bi-github"></i> Code</a>
+                    </div>
+                </div>
+
+                <p style="color: #818cf8; font-weight: 500; margin-bottom: 16px;">Python, Django, DRF, MySQL, JavaScript, Bootstrap</p>
+
+                <ul style="color: #cbd5e1; line-height: 1.7; padding-left: 20px; margin-bottom: 20px;">
+                    <li>Architected and deployed a full-stack e-commerce platform featuring secure authentication, product catalog browsing, cart state persistence, and dynamic checkout workflows.</li>
+                    <li>Designed and normalized 6+ relational database tables using Django ORM and MySQL to manage products, categories, user profiles, and transaction histories.</li>
+                    <li>Integrated custom Django admin functionalities and responsive UI components across mobile and desktop devices using Bootstrap and JavaScript.</li>
+                    <li>Deployed application on Render, configuring environment variables, static media hosting, and database connection strings for production stability.</li>
+                </ul>
+
+                <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                    <span class="tech-tag">Django</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">DRF</span>
+                    <span class="tech-tag">MySQL</span>
+                    <span class="tech-tag">Bootstrap</span>
+                    <span class="tech-tag">Render</span>
                 </div>
             </div>
         </article>
 
-    </div>
+        <!-- PROJECT 2: PERSONAL PORTFOLIO -->
+        <article class="project-card" style="background: #1e293b; border: 1px solid #334155; border-radius: 16px; padding: 30px;">
+            <h3 style="font-size: 1.5rem; color: #f8fafc; margin-bottom: 6px;">Personal Portfolio Web Application</h3>
+            <p style="color: #818cf8; font-weight: 500; margin-bottom: 16px;">Python, Django, HTML5, CSS3, JavaScript, Bootstrap</p>
+            <ul style="color: #cbd5e1; line-height: 1.7; padding-left: 20px; margin-bottom: 20px;">
+                <li>Developed a responsive personal portfolio application to highlight full-stack projects, core technical competencies, and professional experience.</li>
+                <li>Built a secure Django admin dashboard enabling dynamic CRUD operations for updating site content, project metadata, and media files without manual code redeployment.</li>
+                <li>Designed flexible mobile-first layout structures and cross-browser styling using Bootstrap 5 and custom CSS to optimize load performance and user navigation.</li>
+            </ul>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                <span class="tech-tag">Django</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">HTML5/CSS3</span>
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">Bootstrap 5</span>
+            </div>
+        </article>
 
+        <!-- PROJECT 3: SQL DATA ANALYSIS -->
+        <article class="project-card" style="background: #1e293b; border: 1px solid #334155; border-radius: 16px; padding: 30px;">
+            <h3 style="font-size: 1.5rem; color: #f8fafc; margin-bottom: 6px;">SQL Data Analysis Project</h3>
+            <p style="color: #818cf8; font-weight: 500; margin-bottom: 16px;">MySQL, SQL</p>
+            <ul style="color: #cbd5e1; line-height: 1.7; padding-left: 20px; margin-bottom: 20px;">
+                <li>Formulated complex SQL queries utilizing multi-table JOINs, aggregate functions (SUM, COUNT, AVG), GROUP BY, and subqueries to analyze customer purchasing patterns and inventory performance.</li>
+            </ul>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                <span class="tech-tag">MySQL</span>
+                <span class="tech-tag">Relational Queries</span>
+                <span class="tech-tag">Joins & Aggregates</span>
+            </div>
+        </article>
+
+    </div>
 </section>
 
+
 <!-- =========================================================
-     FOOTER SECTION
+     PROFESSIONAL EXPERIENCE SECTION
 ========================================================= -->
-<footer class="footer" id="contact" style="padding: 40px 0; text-align: center; border-top: 1px solid #1e293b; margin-top: 60px;">
-    <div class="container">
-        <h3 style="margin-bottom: 8px;">Swetha.</h3>
-        <p style="color: #94a3b8; margin-bottom: 16px;">Python Full Stack Developer</p>
-        <p style="color: #64748b; font-size: 0.9rem;">&copy; 2026 Swetha. All rights reserved.</p>
+<section id="experience" class="experience-section" style="padding: 60px 8%; background: #0b1120;">
+    <div class="section-header">
+        <p class="section-tag">WORK HISTORY</p>
+        <h2>Professional <span>Experience</span></h2>
     </div>
+
+    <div class="experience-container" style="max-width: 900px; margin: 0 auto;">
+        <div class="experience-card" style="background: #1e293b; border: 1px solid #334155; border-radius: 16px; padding: 30px;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px; margin-bottom: 12px;">
+                <div>
+                    <h3 style="font-size: 1.4rem; color: #f8fafc;">Trade Control and Compliance Coordinator</h3>
+                    <h4 style="color: #6366f1; font-weight: 600; font-size: 1.1rem;">Cameron - Schlumberger</h4>
+                </div>
+                <span style="background: rgba(99, 102, 241, 0.15); color: #818cf8; padding: 6px 14px; border-radius: 20px; font-weight: 600; font-size: 0.85rem;">July 2023 – November 2023</span>
+            </div>
+            <ul style="color: #cbd5e1; line-height: 1.7; padding-left: 20px;">
+                <li>Conducted Denied Party Screening (DPS) and audited international transaction records against global trade control databases with high data precision using DOW Jones.</li>
+                <li>Managed regulatory cross-referencing for export control guidelines, ECCNs, and HS codes across complex datasets.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+
+<!-- =========================================================
+     EDUCATION & TRAINING SECTION
+========================================================= -->
+<section id="education" class="education-section" style="padding: 60px 8%;">
+    <div class="section-header">
+        <p class="section-tag">ACADEMIC BACKGROUND</p>
+        <h2>Education & <span>Training</span></h2>
+    </div>
+
+    <div class="education-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; max-width: 1000px; margin: 0 auto;">
+        
+        <div class="education-card" style="background: #1e293b; border: 1px solid #334155; border-radius: 16px; padding: 26px;">
+            <span style="color: #6366f1; font-weight: 700; font-size: 1.2rem;">01</span>
+            <h3 style="font-size: 1.25rem; color: #f8fafc; margin: 8px 0 4px;">Python Full Stack Development Certification</h3>
+            <p style="color: #818cf8; font-weight: 500; font-size: 0.95rem; margin-bottom: 8px;">Postulate</p>
+            <p style="color: #94a3b8; font-size: 0.85rem;"><i class="bi bi-calendar3"></i> Nov 2025 – Aug 2026</p>
+        </div>
+
+        <div class="education-card" style="background: #1e293b; border: 1px solid #334155; border-radius: 16px; padding: 26px;">
+            <span style="color: #6366f1; font-weight: 700; font-size: 1.2rem;">02</span>
+            <h3 style="font-size: 1.25rem; color: #f8fafc; margin: 8px 0 4px;">Master of Business Administration (MBA)</h3>
+            <p style="color: #818cf8; font-weight: 500; font-size: 0.95rem; margin-bottom: 8px;">GRG School of Management Studies, Coimbatore</p>
+            <p style="color: #94a3b8; font-size: 0.85rem;"><i class="bi bi-calendar3"></i> 2020 – 2022</p>
+        </div>
+
+        <div class="education-card" style="background: #1e293b; border: 1px solid #334155; border-radius: 16px; padding: 26px;">
+            <span style="color: #6366f1; font-weight: 700; font-size: 1.2rem;">03</span>
+            <h3 style="font-size: 1.25rem; color: #f8fafc; margin: 8px 0 4px;">Bachelor of Computer Applications (BCA)</h3>
+            <p style="color: #818cf8; font-weight: 500; font-size: 0.95rem; margin-bottom: 8px;">PSGR Krishnammal College for Women, Coimbatore</p>
+            <p style="color: #94a3b8; font-size: 0.85rem;"><i class="bi bi-calendar3"></i> 2017 – 2020</p>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- =========================================================
+     CONTACT SECTION
+========================================================= -->
+<section id="contact" class="contact-section" style="padding: 60px 8%; background: #0b1120;">
+    <div class="contact-content" style="max-width: 800px; margin: 0 auto; text-align: center;">
+        <p class="section-tag">GET IN TOUCH</p>
+        <h2>Let's Work <span>Together</span></h2>
+        <p style="color: #cbd5e1; margin: 16px 0 32px; font-size: 1.1rem;">
+            I'm actively looking for Full-Stack Python/Django opportunities. Feel free to reach out via email or phone!
+        </p>
+
+        <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 32px;">
+            <a href="mailto:mswetha442@gmail.com" class="primary-btn" style="padding: 12px 24px;">
+                <i class="bi bi-envelope-fill"></i> mswetha442@gmail.com
+            </a>
+            <a href="tel:+917010551208" class="secondary-btn" style="padding: 12px 24px;">
+                <i class="bi bi-telephone-fill"></i> +91 7010551208
+            </a>
+        </div>
+
+        <div style="display: flex; justify-content: center; gap: 16px;">
+            <a href="https://github.com/mswetha442" target="_blank" style="color: #f8fafc; font-size: 1.5rem; background: #1e293b; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid #334155;"><i class="bi bi-github"></i></a>
+            <a href="https://linkedin.com/in/swetha-m-1b771a193" target="_blank" style="color: #f8fafc; font-size: 1.5rem; background: #1e293b; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid #334155;"><i class="bi bi-linkedin"></i></a>
+        </div>
+    </div>
+</section>
+
+
+<!-- =========================================================
+     FOOTER SECTION (CENTERED)
+========================================================= -->
+<footer class="footer" style="padding: 50px 8%; background: #070b14; text-align: center; border-top: 1px solid #1e293b; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px;">
+    <div style="text-align: center;">
+        <h3 style="font-size: 1.6rem; color: #f8fafc; margin-bottom: 6px;">Swetha M.</h3>
+        <p style="color: #6366f1; font-weight: 600; margin-bottom: 10px;">Python Full Stack Developer</p>
+        <p style="color: #94a3b8; font-size: 0.9rem; margin-bottom: 16px;">Thoothukudi, Tamil Nadu, India | mswetha442@gmail.com | +91 7010551208</p>
+    </div>
+
+    <div style="display: flex; gap: 16px; justify-content: center; margin-bottom: 12px;">
+        <a href="https://github.com/mswetha442" target="_blank" style="color: #94a3b8; font-size: 1.3rem;"><i class="bi bi-github"></i></a>
+        <a href="https://linkedin.com/in/swetha-m-1b771a193" target="_blank" style="color: #94a3b8; font-size: 1.3rem;"><i class="bi bi-linkedin"></i></a>
+        <a href="mailto:mswetha442@gmail.com" style="color: #94a3b8; font-size: 1.3rem;"><i class="bi bi-envelope"></i></a>
+    </div>
+
+    <p style="color: #64748b; font-size: 0.85rem; margin: 0;">
+        &copy; 2026 Swetha M. All rights reserved.
+    </p>
 </footer>
+
+<style>
+.tech-tag {
+    background: #0f172a;
+    color: #818cf8;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border: 1px solid rgba(99, 102, 241, 0.2);
+}
+</style>
 
 {% endblock %}
